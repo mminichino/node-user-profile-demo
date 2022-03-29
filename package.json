@@ -1,0 +1,19 @@
+{
+  "name": "user-profile-microservice",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node service.js"
+  },
+  "engines": {
+    "node": "~16.14.0"
+  },
+  "dependencies": {
+    "body-parser": "1.19.2",
+    "config": "~3.3.7",
+    "couchbase": "~3.2.4",
+    "express": "~4.17.3",
+    "express-useragent": "~1.0.15",
+    "to-boolean": "~1.0.0"
+  }
+}
