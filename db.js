@@ -33,7 +33,6 @@ function dataGet(key) {
 function dataQuery(field, value) {
     let keyspace = config.cbBucket + '.' + config.scope + '.' + config.userData
     let query = "SELECT * FROM " + keyspace + " WHERE " + field + "= \"" + value + "\";";
-    let records = []
     return new Promise(
         (resolve, reject) => {
             cluster.query(query, options, (err, result) => {
@@ -60,6 +59,24 @@ function imageGet(key) {
         });
 }
 
+function imageDataGet(key) {
+    return new Promise(
+        (resolve, reject) => {
+            let recordKey = config.userImages + ':' + key
+            image_collection.get(recordKey, (err, record) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    let string = JSON.stringify(record.content);
+                    let objectValue = JSON.parse(string);
+                    let image = objectValue['image']
+                    let codec = objectValue['type']
+                    resolve([image, codec]);
+                }
+            });
+        });
+}
+
 function authGet(key) {
     return new Promise(
         (resolve, reject) => {
@@ -78,3 +95,4 @@ module.exports.dataGet=dataGet;
 module.exports.dataQuery=dataQuery;
 module.exports.imageGet=imageGet;
 module.exports.authGet=authGet;
+module.exports.imageDataGet=imageDataGet;

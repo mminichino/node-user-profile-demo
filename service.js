@@ -19,6 +19,7 @@ const {getRESTAPINickname} = require('./nickname');
 const {getRESTAPIUsername} = require('./username');
 const {getRESTAPIId} = require('./id');
 const {getRESTAPIPictureId} = require('./picture');
+const {getRESTAPIImageData} = require('./picture');
 const {authGet} = require('./db');
 let auth_record = 1;
 
@@ -44,6 +45,7 @@ app.get('/api/v1/nickname/:nickname', checkToken, getRESTAPINickname);
 app.get('/api/v1/username/:username', checkToken, getRESTAPIUsername);
 app.get('/api/v1/id/:id', checkToken, getRESTAPIId);
 app.get('/api/v1/picture/record/:id', checkToken, getRESTAPIPictureId);
+app.get('/api/v1/picture/raw/:id', checkToken, getRESTAPIImageData);
 
 // start the app and listen on the port
 app.listen(port, () => {
