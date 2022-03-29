@@ -1,13 +1,13 @@
-// REST API Get by ID
-const couchbase = require('couchbase');
-const {dataGet} = require("./db");
+// Get Picture Object by ID
+const {imageGet} = require('./db');
+const couchbase = require("couchbase");
 
 module.exports = {
-    getRESTAPIId: (req, res) => {
+    getRESTAPIPictureId: (req, res) => {
         let timestamp = Date.now();
 
         // execute lookup
-        dataGet(req.params.id)
+        imageGet(req.params.id)
             .then((result) => {
                 let records = []
                 records.push(result)
