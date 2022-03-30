@@ -5,7 +5,7 @@ module.exports = {
     userImages: process.env.USER_IMAGES || "user_images",
     serviceAuth: process.env.SERVICE_AUTH || "service_auth",
     cbTls: process.env.COUCHBASE_TLS || "true",
-    cbNetwork: process.env.COUCHBASE_NETWORK || "external",
+    cbNetwork: process.env.COUCHBASE_NETWORK || "default",
     cbHost: process.env.COUCHBASE_HOST || "127.0.0.1",
     cbUser: process.env.COUCHBASE_USER || "Administrator",
     cbPassword: process.env.COUCHBASE_PASSWORD || "password",
